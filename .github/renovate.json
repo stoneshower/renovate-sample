@@ -1,0 +1,42 @@
+{
+  "extends": [
+    ":separateMajorReleases",
+    ":combinePatchMinorReleases",
+    ":ignoreUnstable",
+    ":prImmediately",
+    ":semanticPrefixFixDepsChoreOthers",
+    ":updateNotScheduled",
+    ":automergeDisabled",
+    ":ignoreModulesAndTests",
+    ":autodetectPinVersions",
+    ":prHourlyLimit2",
+    ":prConcurrentLimit20",
+    "group:monorepos",
+    "group:recommended",
+    "helpers:disableTypesNodeMajor",
+    "workarounds:all"
+  ],
+  "timezone": "Asia/Tokyo",
+  "schedule": "before 2am",
+  "vulnerabilityAlerts": {
+    "labels": [
+      "security"
+    ]
+  },
+  "baseBranches": [
+    "master"
+  ],
+  "labels": ["dependencies"],
+  "additionalBranchPrefix": "{{parentDir}}-",
+  "assignAutomerge": true,
+  "assignees": ["shinya-tkhs"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": false
+    }
+  ],
+  "commitBody": "[commit body test]",
+  "prHeader": "PR STARTING",
+  "prFooter": "PR ENDING"
+}
